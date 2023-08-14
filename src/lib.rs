@@ -21,6 +21,7 @@ struct TMGrammar<'a> {
     folding_start_marker: TMRegex,
     #[serde(rename = "foldingStopMarker")]
     folding_stop_marker: TMRegex,
+    // TODO: define a type for patterns
     // patterns: (),
     #[serde(rename = "firstLineMatch")]
     first_line_match: TMRegex,
