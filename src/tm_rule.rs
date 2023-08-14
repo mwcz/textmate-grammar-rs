@@ -6,6 +6,7 @@ use serde::Deserialize;
 // TODO: implement mutual exclusivity of match & begin/end
 
 #[derive(Debug, Deserialize)]
+#[allow(unused)]
 pub struct TMRule<'a> {
     name: &'a str,
 
@@ -27,6 +28,7 @@ pub struct TMRule<'a> {
 }
 
 #[derive(Debug, Deserialize)]
+#[allow(unused)]
 pub struct TMCapture<'a> {
     name: &'a str,
 }

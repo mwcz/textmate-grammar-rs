@@ -50,19 +50,3 @@ impl<'de> Deserialize<'de> for TMRegex {
             .map_err(serde::de::Error::custom)
     }
 }
-
-//
-// // Wrapper around onig::Regex, with Deserialize added.
-// struct TMRegexDeserializer<'de> {
-//     input: &'de str,
-// }
-//
-// impl<'de> TMRegexDeserializer<'de> {
-//     pub fn from_str(input: &'de str) -> Self {
-//         Self { input }
-//     }
-// }
-//
-// pub fn from_str<'a, T>(s: &'a str) -> Result<T> where T: Deserialize<'a> {
-//     let mut
-// }

@@ -31,8 +31,6 @@ struct TMGrammar<'a> {
 
 #[cfg(test)]
 mod tests {
-    use std::str::FromStr;
-
     use super::*;
 
     #[test]
@@ -42,19 +40,4 @@ mod tests {
 
         println!("{asm:#?}");
     }
-
-    // #[test]
-    // fn it_works() {
-    //     let tm = TMGrammar {
-    //         scope_name: "source.test",
-    //         file_types: vec![".rb", ".ruby"],
-    //         folding_start_marker: TMRegex::from_str(r"\{\s*$").unwrap(),
-    //         folding_stop_marker: TMRegex::from_str(r"^\s*\}").unwrap(),
-    //         patterns: (),
-    //         first_line_match: TMRegex::from_str(r"^#!/.*\bruby\b").unwrap(),
-    //         repository: (),
-    //     };
-    //
-    //     println!("{tm:#?}");
-    // }
 }
