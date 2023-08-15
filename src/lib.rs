@@ -1,13 +1,14 @@
 /// TextMate grammar deserializer.
 ///
 /// See https://macromates.com/manual/en/language_grammars
+mod tm_patterns;
 mod tm_regex;
 mod tm_rule;
 
-use std::collections::HashMap;
-
 use crate::tm_regex::TMRegex;
 use serde::Deserialize;
+use std::collections::HashMap;
+use tm_patterns::TMPatterns;
 use tm_rule::TMRule;
 
 #[derive(Debug, Deserialize)]
@@ -16,18 +17,17 @@ struct TMGrammar<'a> {
     #[serde(rename = "scopeName")]
     scope_name: &'a str,
     #[serde(rename = "fileTypes")]
-    file_types: Vec<&'a str>,
+    file_types: Option<Vec<&'a str>>,
     #[serde(rename = "foldingStartMarker")]
-    folding_start_marker: TMRegex,
+    folding_start_marker: Option<TMRegex>,
     #[serde(rename = "foldingStopMarker")]
-    folding_stop_marker: TMRegex,
-    // TODO: define a type for patterns
-    // patterns: (),
+    folding_stop_marker: Option<TMRegex>,
+    patterns: Option<TMPatterns<'a>>,
     #[serde(rename = "firstLineMatch")]
-    first_line_match: TMRegex,
+    first_line_match: Option<TMRegex>,
 
-    // TODO: this doesn't adequately capture the valid types for repository
-    repository: HashMap<&'a str, TMRule<'a>>,
+    // TODO: Option< this doesn't adequately capture the valid types for repository
+    repository: Option<HashMap<&'a str, TMRule<'a>>>,
 }
 
 #[cfg(test)]
