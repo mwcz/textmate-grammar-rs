@@ -78,6 +78,12 @@ where
             {
                 let mut map = HashMap::new();
                 while let Some(key) = access.next_key::<String>()? {
+                    // standard fields here are... "0": { name: "..." }
+                    // but many grammars contain non-standard fields.
+                    // if those nonstandard fields are needed someday, this can be adjusted, but
+                    // for now the following will parse keys which are parsable as u16, and values
+                    // which are parsable as TMCapture (ie, { name: "" }).  fields which don't meet
+                    // those requirements are skipped.
                     if let Ok(u16_key) = key.parse::<u16>() {
                         if let Ok(value) = access.next_value::<TMCapture<'a>>() {
                             map.insert(u16_key, value);
