@@ -1,0 +1,1 @@
+These TextMate language grammar files are from the [Shiki](https://github.com/shikijs/shiki) project, though most (all?) don't originate there and are copied into Shiki from original sources.  Still, they are distributed with Shiki under its license, so I'm including them here with the same license.
